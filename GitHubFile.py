@@ -54,4 +54,64 @@ def addRepositoryNodes(t,dictContributorListAllRepos,saveReposInOrder,repos):
     return t
 
 
+#Adding contributor Nodes and creating links between them and Repository
+def addNodes(repos,t,dictContributorListAllRepos,saveReposInOrder,linksStuff):
+    i=1
 
+    for repo in repos:#[0:4:1]:
+        print("Repo: "+str(i)+" of "+str(repos.totalCount))
+        
+        
+        contribList=list(repo.get_contributors())
+        print(len(contribList))
+
+        for x in contribList:#[0:4:1]:
+        
+            valueIs="ContributionsMade"+str(x.contributions)+"\n will this work"#Could do a unit test here for a function
+            symbolSize=10
+
+            contrib ={'id':t,'name':x.login,'login':x.login,'value':valueIs,'category':repo.name,"symbolSize": symbolSize}
+            print("contributor: "+x.login)
+            dictContributorListAllRepos.append(contrib)  
+            #saveReposInOrde
+            #Create Link
+            for x in saveReposInOrder:
+                if x==repo.name:
+                    index=saveReposInOrder.index(x);
+                    #Create a link here
+                    link={
+                    "source":t,
+                    "target":index #We might be getting the wrong index here so watch out
+                    }
+                    linksStuff.append(link)
+                    break
+
+
+
+            t+=1
+        i+=1
+    return t
+
+#############################################
+
+
+
+
+#MAYBE WE SHOULD DO DAYS ACTIVE IN A YEAR OR SOMETHING ISNTEAD OF BY COMMITS
+
+# ###################################
+# #Creating the github Object
+# GithubWorkObject=Githubclass("","")
+
+# print("Testing"+GithubWorkObject.stringTest)
+
+# ###################################
+# #Add Repo Nodes
+# nextIndex=addRepositoryNodes(GithubWorkObject.t,GithubWorkObject.dictContributorListAllRepos,GithubWorkObject.saveReposInOrder,GithubWorkObject.repos)
+# GithubWorkObject.t=nextIndex
+
+# ####################################
+# #Adding User Nodes and Links between those Nodes and Repos
+# nextIndex=addNodes(GithubWorkObject.repos,GithubWorkObject.t,GithubWorkObject.dictContributorListAllRepos,GithubWorkObject.saveReposInOrder,GithubWorkObject.linksStuff)
+# GithubWorkObject.t=nextIndex
+# ##################################
