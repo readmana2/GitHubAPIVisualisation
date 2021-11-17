@@ -4,7 +4,7 @@ import json
 import pymongo
 
 
-class TestingLCA(unittest.TestCase):
+class TestingGithubVisualisation(unittest.TestCase):
    
 
  #Test if the entire thing works once it has ran    
