@@ -3,7 +3,7 @@ import GitHubFile
 import json
 import pymongo
 
-from GitHubFile import Githubclass
+from GitHubFile import Githubclass,addRepositoryNodes
 
 
 class TestingGithubVisualisation(unittest.TestCase):
@@ -34,7 +34,15 @@ class TestingGithubVisualisation(unittest.TestCase):
         
 #Testing if repos given are correct. Do this by evaluating the size of the repos from a known address
     def test_Repos(self):
-        assert(True)
+        # ###################################
+        #Creating the github Object
+        GithubWorkObject=Githubclass("","readmana2")#
+        ###################################
+        #Add Repo Nodes
+        nextIndex=addRepositoryNodes(GithubWorkObject.t,GithubWorkObject.dictContributorListAllRepos,GithubWorkObject.saveReposInOrder,GithubWorkObject.repos)
+        #print(nextIndex)
+
+        self.assertEqual(nextIndex,3)
 
 #Testing if the id returned is correct to ensure the correct amount of Nodes were added to the nodes/links array
     def test_addNodes(self):
