@@ -8,10 +8,10 @@ class TestingGithubVisualisation(unittest.TestCase):
    
 
  #Test if the entire thing works while building.   
-    def test_BuoildDataObject(self):
+    def test_BuildDataObject(self):
 
         GithubWorkObject=Githubclass("token","username")#
-        if GithubWorkObject.errorCode == -1
+        if GithubWorkObject.errorCode == -1:
             assert(False)
 
         assert(True)
