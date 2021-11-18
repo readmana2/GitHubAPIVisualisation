@@ -3,7 +3,7 @@ import GitHubFile
 import json
 import pymongo
 
-from GitHubFile import Githubclass,addRepositoryNodes
+from GitHubFile import Githubclass,addRepositoryNodes,addNodes
 
 
 class TestingGithubVisualisation(unittest.TestCase):
@@ -46,7 +46,21 @@ class TestingGithubVisualisation(unittest.TestCase):
 
 #Testing if the id returned is correct to ensure the correct amount of Nodes were added to the nodes/links array
     def test_addNodes(self):
-        assert(True)
+        ###################################
+        #Creating the github Object
+        GithubWorkObject=Githubclass("","readmana2")
+
+        ###################################
+        #Add Repo Nodes
+        nextIndex=addRepositoryNodes(GithubWorkObject.t,GithubWorkObject.dictContributorListAllRepos,GithubWorkObject.saveReposInOrder,GithubWorkObject.repos)
+        GithubWorkObject.t=nextIndex
+
+        ####################################
+        #Adding User Nodes and Links between those Nodes and Repos
+        nextIndex=addNodes(GithubWorkObject.repos,GithubWorkObject.t,GithubWorkObject.dictContributorListAllRepos,GithubWorkObject.saveReposInOrder,GithubWorkObject.linksStuff)
+        GithubWorkObject.t=nextIndex
+        
+        self.assertEqual(nextIndex,6)
     
 #Test if the entire thing works once it has ran    
     def test_runWholeThingWithoutErrors(self):
