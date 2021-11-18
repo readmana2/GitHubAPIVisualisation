@@ -92,6 +92,18 @@ def addNodes(repos,t,dictContributorListAllRepos,saveReposInOrder,linksStuff):
         i+=1
     return t
 
+
+def createCategoriesArray(categories,repos):
+    # Create the required Categories
+    
+    for repo in repos:#[0:4:1]:
+        
+        idStuff={'name': repo.name}
+        categories.append(idStuff)
+
+
+
+    return None
 #############################################
 
 
@@ -115,3 +127,6 @@ def addNodes(repos,t,dictContributorListAllRepos,saveReposInOrder,linksStuff):
 # nextIndex=addNodes(GithubWorkObject.repos,GithubWorkObject.t,GithubWorkObject.dictContributorListAllRepos,GithubWorkObject.saveReposInOrder,GithubWorkObject.linksStuff)
 # GithubWorkObject.t=nextIndex
 # ##################################
+# # # Create the required Categories
+# createCategoriesArray(GithubWorkObject.categories,GithubWorkObject.repos)
+
