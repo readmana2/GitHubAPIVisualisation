@@ -36,7 +36,7 @@ class TestingGithubVisualisation(unittest.TestCase):
     def test_Repos(self):
         # ###################################
         #Creating the github Object
-        GithubWorkObject=Githubclass("","readmana2")#
+        GithubWorkObject=Githubclass("","user")#
         ###################################
         #Add Repo Nodes
         nextIndex=addRepositoryNodes(GithubWorkObject.t,GithubWorkObject.dictContributorListAllRepos,GithubWorkObject.saveReposInOrder,GithubWorkObject.repos)
@@ -48,7 +48,7 @@ class TestingGithubVisualisation(unittest.TestCase):
     def test_addNodes(self):
         ###################################
         #Creating the github Object
-        GithubWorkObject=Githubclass("","readmana2")
+        GithubWorkObject=Githubclass("","user")
 
         ###################################
         #Add Repo Nodes
@@ -66,7 +66,7 @@ class TestingGithubVisualisation(unittest.TestCase):
     def test_runWholeThingWithoutErrors(self):
             ###################################
             #Creating the github Object
-            GithubWorkObject=Githubclass("token","aqlaboratory")
+            GithubWorkObject=Githubclass("token","user")
 
             print("Testing"+GithubWorkObject.stringTest)
 
