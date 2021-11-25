@@ -1,4 +1,11 @@
 from github import Github
+import json
+import pymongo
+import requests
+import pprint
+import math
+
+
 
 #The node class
 class Githubclass:
@@ -38,6 +45,36 @@ class Githubclass:
         self.stringTest="successfullyInstantiated"
 
 
+#Functions
+########################################
+def determineSybmbolSize(contributions):
+        # if x.contributions < 50:
+        #     symbolSize=1+5
+        # elif x.contributions < 100:
+        #     symbolSize=1+10
+        # elif x.contributions < 200:
+        #     symbolSize=1+20
+        # elif x.contributions < 400:
+        #     symbolSize=1+40
+        # else:
+        #     symbolSize=1+80
+
+    symbolSize=1+math.log(contributions)*10
+    return symbolSize
+        
+
+def createCategoriesArray(categories,repos):
+    # Create the required Categories
+    
+    for repo in repos:#[0:4:1]:
+        
+        idStuff={'name': repo.name}
+        categories.append(idStuff)
+
+
+
+    return None
+#Returns the next ID available
 def addRepositoryNodes(t,dictContributorListAllRepos,saveReposInOrder,repos):
     # #Get all the repos
     for repo in repos:  
@@ -50,11 +87,10 @@ def addRepositoryNodes(t,dictContributorListAllRepos,saveReposInOrder,repos):
         saveReposInOrder.append(repo.name)
         t+=1
 
-#E.g First 12 have an id of 0-11
+#First 12 have an id of 0-11
     return t
 
-
-#Adding contributor Nodes and creating links between them and Repository
+#
 def addNodes(repos,t,dictContributorListAllRepos,saveReposInOrder,linksStuff):
     i=1
 
@@ -68,7 +104,7 @@ def addNodes(repos,t,dictContributorListAllRepos,saveReposInOrder,linksStuff):
         for x in contribList:#[0:4:1]:
         
             valueIs="ContributionsMade"+str(x.contributions)+"\n will this work"#Could do a unit test here for a function
-            symbolSize=10
+            symbolSize=determineSybmbolSize(x.contributions)
 
             contrib ={'id':t,'name':x.login,'login':x.login,'value':valueIs,'category':repo.name,"symbolSize": symbolSize}
             print("contributor: "+x.login)
@@ -92,28 +128,16 @@ def addNodes(repos,t,dictContributorListAllRepos,saveReposInOrder,linksStuff):
         i+=1
     return t
 
-
-def createCategoriesArray(categories,repos):
-    # Create the required Categories
-    
-    for repo in repos:#[0:4:1]:
-        
-        idStuff={'name': repo.name}
-        categories.append(idStuff)
-
-
-
-    return None
 #############################################
 
 
 
 
-#MAYBE WE SHOULD DO DAYS ACTIVE IN A YEAR OR SOMETHING ISNTEAD OF BY COMMITS
+# #MAYBE WE SHOULD DO DAYS ACTIVE IN A YEAR OR SOMETHING ISNTEAD OF BY COMMITS
 
 # ###################################
 # #Creating the github Object
-# GithubWorkObject=Githubclass("","")
+# GithubWorkObject=Githubclass("token","user")
 
 # print("Testing"+GithubWorkObject.stringTest)
 
@@ -130,3 +154,27 @@ def createCategoriesArray(categories,repos):
 # # # Create the required Categories
 # createCategoriesArray(GithubWorkObject.categories,GithubWorkObject.repos)
 
+# data={'nodes':GithubWorkObject.dictContributorListAllRepos,'links':GithubWorkObject.linksStuff,'categories':GithubWorkObject.categories}
+
+
+# print("JSON of contributors")
+# jsonStringList =json.dumps(data)
+# #print(jsonStringList)
+
+
+# with open("sample3.json", "w") as outfile:
+#     outfile.write(jsonStringList)
+
+
+
+
+
+
+# conn = "mongodb://localhost:27017"
+# client =pymongo.MongoClient(conn)
+
+# #create a database
+# db=client.classDB
+# db.githubuser.insert_many([data])
+
+    
