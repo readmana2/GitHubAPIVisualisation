@@ -62,10 +62,42 @@ class TestingGithubVisualisation(unittest.TestCase):
         
         self.assertEqual(nextIndex,6)
     
-#Test if the entire thing works once it has ran    
+ #Testing without Errors   
     def test_runWholeThingWithoutErrors(self):
-        assert(True)
+            ###################################
+            #Creating the github Object
+            GithubWorkObject=Githubclass("token","aqlaboratory")
 
+            print("Testing"+GithubWorkObject.stringTest)
+
+            ###################################
+            #Add Repo Nodes
+            nextIndex=addRepositoryNodes(GithubWorkObject.t,GithubWorkObject.dictContributorListAllRepos,GithubWorkObject.saveReposInOrder,GithubWorkObject.repos)
+            GithubWorkObject.t=nextIndex
+
+            ####################################
+            #Adding User Nodes and Links between those Nodes and Repos
+            nextIndex=addNodes(GithubWorkObject.repos,GithubWorkObject.t,GithubWorkObject.dictContributorListAllRepos,GithubWorkObject.saveReposInOrder,GithubWorkObject.linksStuff)
+            GithubWorkObject.t=nextIndex
+            ##################################
+            # # Create the required Categories
+            createCategoriesArray(GithubWorkObject.categories,GithubWorkObject.repos)
+
+            data={'nodes':GithubWorkObject.dictContributorListAllRepos,'links':GithubWorkObject.linksStuff,'categories':GithubWorkObject.categories}
+
+
+            print("JSON of contributors")
+            jsonStringList =json.dumps(data)
+            #print(jsonStringList)
+
+
+            with open("sample.json", "w") as outfile:
+                outfile.write(jsonStringList)
+
+            assert(True)
+
+            if GithubWorkObject.errorCode == -1:
+                assert(False)
 
 #Test if the entire thing works once it has ran    
     def test_runWholeThingWithErrors(self):
