@@ -6,8 +6,6 @@ import math
 import re
 
 
-
-
 #The node class
 class Githubclass:
     
@@ -56,7 +54,8 @@ def getAllContributionsOfUsers(GithubWorkObject):
 
             number+=1
             #allcommits.append(repo.get_commit(commit.sha).commit.author.date)
-            dateexact=repo.get_commit(commit.sha).commit.author.date
+            dateexact=commit.commit.author.date
+            #dateexact=repo.get_commit(commit.sha).commit.author.date
 
             # print(dateexact)
             stringdate = str(dateexact)
@@ -66,10 +65,8 @@ def getAllContributionsOfUsers(GithubWorkObject):
             # re.sub(" ", ",", stringdate.strip())
 
             strippedString= re.sub("[,]", ",", stringdate)
-            strippedString=strippedString[:13]
-
-
-            #print(strippedString)
+            strippedString=strippedString[:10]#Days
+            #strippedString=strippedString[:13]#Hours
 
             allcommits.append(strippedString)
     
@@ -80,26 +77,21 @@ def getAllContributionsOfUsers(GithubWorkObject):
             
 
 
-# #Main
-# #Creating the github Object
-# GithubWorkObject=Githubclass("","")
-# print(GithubWorkObject.user.login)
+#Main
+#Creating the github Object
+GithubWorkObject=Githubclass("token","user")
+print(GithubWorkObject.user.login)
 
-# contributionsList=[]
-# contributionsList=getAllContributionsOfUsers(GithubWorkObject)
-# print(contributionsList[2])
+contributionsList=[]
+contributionsList=getAllContributionsOfUsers(GithubWorkObject)
+print(contributionsList[2])
 
-# my_dict = {i:contributionsList.count(i) for i in contributionsList}
-# print(my_dict)
+my_dict = {i:contributionsList.count(i) for i in contributionsList}
+print(my_dict)
 
-# print("JSON of time")
-# jsonStringList =json.dumps(my_dict)
-#      #print(jsonStringList)
+print("JSON of time")
+jsonStringList =json.dumps(my_dict)
 
+with open("time3.json", "w") as outfile:
+    outfile.write(jsonStringList)
 
-# with open("time1.json", "w") as outfile:
-#     outfile.write(jsonStringList)
-
-
-
-#Get date of account creation and use that as the base
