@@ -103,7 +103,7 @@ def addNodes(repos,t,dictContributorListAllRepos,saveReposInOrder,linksStuff):
 
         for x in contribList:#[0:4:1]:
         
-            valueIs="ContributionsMade"+str(x.contributions)+"\n will this work"#Could do a unit test here for a function
+            valueIs="ContributionsMade"+str(x.contributions)#Could do a unit test here for a function
             symbolSize=determineSybmbolSize(x.contributions)
 
             contrib ={'id':t,'name':x.login,'login':x.login,'value':valueIs,'category':repo.name,"symbolSize": symbolSize}
