@@ -44,7 +44,7 @@ In timeWork2.py and GitHubFile.py put your generated github token and selected u
 Run both of those files. 2 Json files should be created from these files
 Then run a python server with "python -m http.server 8000" on your command line or use a different port to 8000
  
-open up a web browser and type "http://127.0.0.1:8000/testNodes.html"  or whatever equivalent port the python server is running
+open up a web browser and type "http://127.0.0.1:8000/timeWorkTime2.html"  or whatever equivalent port the python server is running
 You should now see the two graphs generated from the JSON data
 
 
