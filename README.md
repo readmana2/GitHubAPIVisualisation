@@ -12,7 +12,7 @@ The first is a graph showing every single commit that has ever occurred in a use
 You can scroll to narrow down the dates or to expand them. You can also use it to see the commits between two specific points in time
 It's based on the commits made each day but it is also possible to alter the python code to make it based on commits in an hour
 
-![](ScreenshotsOfGraphs/CommitGraph1Edited)
+![](ScreenshotsOfGraphs/CommitGraph1Edited.png)
 
 The second graph shows every single repository in the the users account and every single user that has commit to those 
 repositories. The size of the the user nodes will scale up depending on the amount of contributions they made.
