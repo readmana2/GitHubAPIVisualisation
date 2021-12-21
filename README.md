@@ -28,7 +28,7 @@ larger than a node where a user only made 1 or 2 commits.
 
 Both graphs are interactive. In the first one you can determine the time period of commits you want to see by scrolling or manipulating the window at the bottom
 of the graph. In the second graph, you can click categories legend at the top of the graph to make the repository node and all associated users disappear. This allows you 
-to look at select repositories at a time.
+to look at select repositories at a time. You can also hover over nodes to get additional information
 ![](ScreenshotsOfGraphs/CommitGraphOverall.png)
 ![](ScreenshotsOfGraphs/CommitGraphZoomedInToDays.png)
 ![](ScreenshotsOfGraphs/NodeGraph1AnotherExample.png)
