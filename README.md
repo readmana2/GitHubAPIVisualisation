@@ -12,6 +12,10 @@ The first is a graph showing every single commit that has ever occurred in a use
 You can scroll to narrow down the dates or to expand them. You can also use it to see the commits between two specific points in time
 It's based on the commits made each day but it is also possible to alter the python code to make it based on commits in an hour
 
+
+I used data taken from trending repositories on Github but I hid the  user names and repository names and replaced them with numbers for the images shown.
+
+
 ![](ScreenshotsOfGraphs/CommitGraph1Edited.png)
 
 
@@ -31,8 +35,6 @@ to look at select repositories at a time.
 
 
 
-
-I used data taking from trending repositories on Github but I hid the  user names and repository names and replaced them with numbers.
 
 Steps involved in setting this up
 Have Python installed on your computer https://www.python.org/downloads/
