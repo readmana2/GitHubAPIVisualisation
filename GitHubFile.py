@@ -130,10 +130,6 @@ def addNodes(repos,t,dictContributorListAllRepos,saveReposInOrder,linksStuff):
 #############################################
 
 
-
-
-#MAYBE WE SHOULD DO DAYS ACTIVE IN A YEAR OR SOMETHING ISNTEAD OF BY COMMITS
-
 ###################################
 #Creating the github Object
 #GithubWorkObject=Githubclass("token","user")
