@@ -5,7 +5,7 @@ Due 22nd December
 
 
 For this project I focused on provididng measurements of all the activity in a user's github account.
-It gets a bit messy when the account has extremely large levels of activity but seems to be fine for smaller amounts
+It gets a bit messy when the account has extremely large levels of activity but seems to be fine for smaller amounts.
 My Visualisation consists of two graphs.
 
 The first is a graph showing every single commit that has ever occurred in a users account.
