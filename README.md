@@ -36,15 +36,15 @@ to look at select repositories at a time. You can also hover over nodes to get a
 
 
 
-Steps involved in setting this up
-Have Python installed on your computer https://www.python.org/downloads/
-Have PyGithub installed on your computer with this command "pip install PyGithub"
-Download the git repository 
-In timeWork2.py and GitHubFile.py put your generated github token and selected username in the GithubWorkObject=Githubclass("token","username") area
-Run both of those files. 2 Json files should be created from these files
-Then run a python server with "python -m http.server 8000" on your command line or use a different port to 8000
+Steps involved in setting this up.
+Have Python installed on your computer https://www.python.org/downloads/.
+Have PyGithub installed on your computer with this command "pip install PyGithub".
+Download the git repository .
+In timeWork2.py and GitHubFile.py put your generated github token and selected username in the GithubWorkObject=Githubclass("token","username") area.
+Run both of those files. 2 Json files should be created from these files.
+Then run a python server with "python -m http.server 8000" on your command line or use a different port to 8000.
  
-open up a web browser and type "http://127.0.0.1:8000/timeWorkTime2.html"  or whatever equivalent port the python server is running
-You should now see the two graphs generated from the JSON data
+open up a web browser and type "http://127.0.0.1:8000/timeWorkTime2.html"  or whatever equivalent port the python server is running.
+You should now see the two graphs generated from the JSON data.
 
 
