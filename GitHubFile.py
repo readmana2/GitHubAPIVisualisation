@@ -1,6 +1,5 @@
 from github import Github
 import json
-import pymongo
 import requests
 import pprint
 import math
@@ -133,48 +132,38 @@ def addNodes(repos,t,dictContributorListAllRepos,saveReposInOrder,linksStuff):
 
 
 
-# #MAYBE WE SHOULD DO DAYS ACTIVE IN A YEAR OR SOMETHING ISNTEAD OF BY COMMITS
+#MAYBE WE SHOULD DO DAYS ACTIVE IN A YEAR OR SOMETHING ISNTEAD OF BY COMMITS
 
-# ###################################
-# #Creating the github Object
-# GithubWorkObject=Githubclass("token","user")
+###################################
+#Creating the github Object
+#GithubWorkObject=Githubclass("token","user")
+GithubWorkObject=Githubclass("token","user")
 
-# print("Testing"+GithubWorkObject.stringTest)
+print("Testing"+GithubWorkObject.stringTest)
 
-# ###################################
-# #Add Repo Nodes
-# nextIndex=addRepositoryNodes(GithubWorkObject.t,GithubWorkObject.dictContributorListAllRepos,GithubWorkObject.saveReposInOrder,GithubWorkObject.repos)
-# GithubWorkObject.t=nextIndex
+###################################
+#Add Repo Nodes
+nextIndex=addRepositoryNodes(GithubWorkObject.t,GithubWorkObject.dictContributorListAllRepos,GithubWorkObject.saveReposInOrder,GithubWorkObject.repos)
+GithubWorkObject.t=nextIndex
 
-# ####################################
-# #Adding User Nodes and Links between those Nodes and Repos
-# nextIndex=addNodes(GithubWorkObject.repos,GithubWorkObject.t,GithubWorkObject.dictContributorListAllRepos,GithubWorkObject.saveReposInOrder,GithubWorkObject.linksStuff)
-# GithubWorkObject.t=nextIndex
-# ##################################
-# # # Create the required Categories
-# createCategoriesArray(GithubWorkObject.categories,GithubWorkObject.repos)
+####################################
+#Adding User Nodes and Links between those Nodes and Repos
+nextIndex=addNodes(GithubWorkObject.repos,GithubWorkObject.t,GithubWorkObject.dictContributorListAllRepos,GithubWorkObject.saveReposInOrder,GithubWorkObject.linksStuff)
+GithubWorkObject.t=nextIndex
+##################################
+# # Create the required Categories
+createCategoriesArray(GithubWorkObject.categories,GithubWorkObject.repos)
 
-# data={'nodes':GithubWorkObject.dictContributorListAllRepos,'links':GithubWorkObject.linksStuff,'categories':GithubWorkObject.categories}
-
-
-# print("JSON of contributors")
-# jsonStringList =json.dumps(data)
-# #print(jsonStringList)
+data={'nodes':GithubWorkObject.dictContributorListAllRepos,'links':GithubWorkObject.linksStuff,'categories':GithubWorkObject.categories}
 
 
-# with open("sample3.json", "w") as outfile:
-#     outfile.write(jsonStringList)
+print("JSON of contributors")
+jsonStringList =json.dumps(data)
+#print(jsonStringList)
 
 
-
+with open("sample4.json", "w") as outfile:
+    outfile.write(jsonStringList)
 
 
 
-# conn = "mongodb://localhost:27017"
-# client =pymongo.MongoClient(conn)
-
-# #create a database
-# db=client.classDB
-# db.githubuser.insert_many([data])
-
-    
